@@ -4,10 +4,17 @@ a simple desktop tool for recite
 
 wish everyone pass
 
-#### Quick Start
+## Quick Start
 
 ``` bash
 npm install
 
 npm run dev
 ```
+
+## Build Artifact
+
+``` bash
+npm run build:dir
+```
+click `/build/win-unpacked/pass-no-fail.exe` and you can use the application
