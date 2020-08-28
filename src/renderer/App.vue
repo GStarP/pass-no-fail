@@ -14,9 +14,10 @@
 html, body {
   margin: 0;
   min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: '微软雅黑';
 }
 #app {
   min-height: 100vh;
+  background-color: #FAFAFA;
 }
 </style>

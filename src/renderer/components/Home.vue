@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="info">
+    <div class="header">
     </div>
     <div class="subject-list">
       <subject
