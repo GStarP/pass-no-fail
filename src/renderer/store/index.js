@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { createPersistedState, createSharedMutations } from 'vuex-electron'
 import { getStore } from '../util/store'
+import { getCurTimeStr } from '../util/time'
 
 Vue.use(Vuex)
 
@@ -22,7 +23,7 @@ export default new Vuex.Store({
       if (payload.name) {
         state.data.subjectList.push({
           name: payload.name,
-          lastUpdateTime: new Date().toLocaleTimeString(),
+          lastUpdateTime: getCurTimeStr(),
           qaNum: 0,
           qaList: []
         })
