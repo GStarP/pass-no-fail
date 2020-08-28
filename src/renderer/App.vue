@@ -11,13 +11,18 @@
 </script>
 
 <style lang="scss">
+@import "@/assets/main.scss";
+
 html, body {
   margin: 0;
   min-height: 100vh;
   font-family: '微软雅黑';
 }
+div {
+  box-sizing: border-box;
+}
 #app {
   min-height: 100vh;
-  background-color: #42A5F5;
+  background-color: $background;
 }
 </style>
