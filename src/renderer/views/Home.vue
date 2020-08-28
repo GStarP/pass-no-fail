@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Subject from './Subject.vue'
+import Subject from '@/components/Subject.vue'
 
 export default {
   components: {

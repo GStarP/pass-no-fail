@@ -10,7 +10,7 @@
   }
 </script>
 
-<style>
+<style lang="scss">
 html, body {
   margin: 0;
   min-height: 100vh;
@@ -18,6 +18,6 @@ html, body {
 }
 #app {
   min-height: 100vh;
-  background-color: #FAFAFA;
+  background-color: #42A5F5;
 }
 </style>
