@@ -82,8 +82,14 @@ export default {
     flex-direction: row;
     flex-wrap: wrap;
     >div {
-      width: 31%;
-      margin: 8px 1%;
+      @media screen and (max-width: 1080px){
+        width: 31%;
+        margin: 8px 1%;
+      }
+      @media screen and (min-width: 1080px){
+        width: 23%;
+        margin: 8px 1%;
+      }
     }
   }
   .hint {
