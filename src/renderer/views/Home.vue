@@ -2,9 +2,7 @@
   <div class="home">
     <div class="header">
       <div class="name">PASS-NO-FAIL</div>
-      <div class="btn">
-        <div class="btn-text">新建主题</div>
-      </div>
+      <hxw-btn outlined @click="addSubject">新建主题</hxw-btn>
     </div>
     <div class="subject-list">
       <subject
@@ -23,14 +21,19 @@
 
 <script>
 import Subject from '@/components/Subject.vue'
+import Button from '@/components/common/Button.vue'
+import MessageBox from '@/components/common/message-box'
 
 export default {
   components: {
-    'subject': Subject
+    'subject': Subject,
+    'hxw-btn': Button
   },
   methods: {
-    open (link) {
-      this.$electron.shell.openExternal(link)
+    addSubject () {
+      MessageBox.input('新建主题', '请输入主题名称').then(res => {
+        alert(res)
+      })
     }
   },
   computed: {
@@ -71,7 +74,8 @@ export default {
     }
     .btn {
       margin-left: auto;
-      @include outline($text);
+      border-color: #FFF;
+      color: #FFF;
     }
   }
   .subject-list {

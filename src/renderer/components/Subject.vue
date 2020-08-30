@@ -48,6 +48,7 @@ export default Vue.extend({
     font-size: $big;
     @include spacing($spacing);
     @include line(1);
+    margin-bottom: 0.5rem;
   }
   &__info {
     @include row;

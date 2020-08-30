@@ -23,6 +23,7 @@
 $background:  #5C6BC0;
 $text: #FFF;
 $caption: #676767;
+$error: rgb(255, 82, 82);
 
 /**
  * font
@@ -56,45 +57,7 @@ $mini: 12px;
 .card {
   @include elevation-2;
   border-radius: 4px;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem;
   background-color: #FFF;
   color: #000;
-}
-
-/**
- * button
- */
-.btn {
-  $h: 40px;
-  $spacing: 2px;
-
-  height: $h;
-  min-width: 72px;
-  padding: 0 18px;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  &-text {
-    font-size: $small;
-    font-weight: 300;
-    height: $h;
-    line-height: $h;
-    @include spacing($spacing);
-  }
-  transition: background-color .2s cubic-bezier(.4,0,.6,1);
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-@mixin outline($color) {
-  border: thin solid;
-  border-width: 1px;
-  border-color: $color;
-  color: $color;
-  background-color: transparent;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
 }
