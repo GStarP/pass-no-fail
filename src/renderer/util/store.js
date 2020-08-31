@@ -13,5 +13,7 @@ export function getStore () {
 }
 
 export function updateStore (data) {
-  fs.writeFileSync(path.join(__static, STORE_PATH), JSON.stringify(data))
+  console.log('===start write===')
+  fs.writeFileSync(STORE_PATH, JSON.stringify(data))
+  console.log('===finish write===')
 }

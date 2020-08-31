@@ -5,8 +5,12 @@
       <div class="message-box">
         <div class="card message-box__content">
           <div class="message-box__title">{{title}}</div>
-          <!-- TODO -->
-          <input v-model="inputVal" :placeholder="hint" class="message-box__input" style="height: 48px"/>
+          <hxw-input
+            :value="inputVal"
+            class="message-box__input"
+            :hint="hint"
+            @change="onChange"
+          />
           <div class="message-box__footer">
             <div style="margin-left: auto;"></div>
             <hxw-btn
@@ -29,10 +33,12 @@
 <script>
 import Vue from 'vue'
 import Button from '@/components/common/Button.vue'
+import Input from '@/components/common/Input.vue'
 
 export default Vue.extend({
   components: {
-    'hxw-btn': Button
+    'hxw-btn': Button,
+    'hxw-input': Input
   },
   data () {
     return {
@@ -56,6 +62,9 @@ export default Vue.extend({
           this.callback(this.action, this)
         }
       })
+    },
+    onChange (val) {
+      this.inputVal = val
     }
   }
 })
@@ -94,7 +103,7 @@ export default Vue.extend({
   }
   &__title {
     width: 100%;
-    font-size: $big;
+    font-size: 20px;
     margin-bottom: 2rem;
   }
   &__input {

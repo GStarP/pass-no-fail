@@ -15,10 +15,10 @@ function show (options, resolve, reject) {
     init()
   }
   instance.action = ''
+  instance.inputVal = ''
 
   instance.title = options.title
   instance.hint = options.hint
-  console.log(options.title, instance.title)
   instance.callback = (action) => {
     if (action === 'confirm') {
       resolve(instance.inputVal)

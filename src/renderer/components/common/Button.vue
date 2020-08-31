@@ -47,6 +47,7 @@ export default Vue.extend({
   align-items: center;
   justify-content: center;
   &__text {
+    user-select:none;
     font-size: $small;
     font-weight: 300;
     @include spacing(2px);

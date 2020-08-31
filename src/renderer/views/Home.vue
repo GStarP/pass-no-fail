@@ -32,8 +32,10 @@ export default {
   methods: {
     addSubject () {
       MessageBox.input('新建主题', '请输入主题名称').then(res => {
-        alert(res)
-      })
+        this.$store.commit('ADD_SUBJECT', {
+          name: res
+        })
+      }).catch(() => {})
     }
   },
   computed: {
