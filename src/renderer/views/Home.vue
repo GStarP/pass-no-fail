@@ -4,17 +4,19 @@
       <div class="name">PASS-NO-FAIL</div>
       <hxw-btn outlined @click="addSubject">新建主题</hxw-btn>
     </div>
-    <div class="subject-list">
-      <subject
-        v-for="(subject, i) of subjectList"
-        :key="i"
-        :data="subject"
-      />
-    </div>
-    <!-- 无主题引导 -->
-    <div class="hint" v-if="subjectList.length === 0">
-      <div>还没有主题</div>
-      <div>快去新建一个吧</div>
+    <div class="content">
+      <div class="subject-list">
+        <subject
+          v-for="(subject, i) of subjectList"
+          :key="i"
+          :data="subject"
+        />
+      </div>
+      <!-- 无主题引导 -->
+      <div class="hint" v-if="subjectList.length === 0">
+        <div>还没有主题</div>
+        <div>快去新建一个吧</div>
+      </div>
     </div>
   </div>
 </template>
@@ -59,16 +61,20 @@ export default {
   flex-direction: column;
   align-items: center;
   width: 100%;
+
   .header {
     $h: $header-h;
     $p: 32px;
-
+    
     position: fixed;
+    z-index: 67;
     display: flex;
     align-items: center;
     width: 100%;
     height: $h;
     padding: 0 $p;
+    background-color: rgba($background, 0.99);
+
     .name {
       font-size: 1.5rem;
       color: $text;
@@ -80,8 +86,12 @@ export default {
       color: #FFF;
     }
   }
-  .subject-list {
+  .content {
+    width: 100%;
     margin-top: $header-h;
+    padding-bottom: 1rem;
+  }
+  .subject-list {
     width: 100%;
     padding: 0 5%;
     display: flex;
