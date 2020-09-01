@@ -10,9 +10,6 @@ const ADD_SUBJECT = 'ADD_SUBJECT'
 const ADD_QA = 'ADD_QA'
 
 export default new Vuex.Store({
-  plugins: [
-    createPersistedState()
-  ],
   state: {
     data: getStore()
   },
