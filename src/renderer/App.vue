@@ -25,4 +25,12 @@ div {
   min-height: 100vh;
   background-color: $background;
 }
+::-webkit-scrollbar {
+  background-color: $background;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
 </style>

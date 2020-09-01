@@ -18,3 +18,9 @@ npm run dev
 npm run build:dir
 ```
 click `/build/win-unpacked/pass-no-fail.exe` and you can use the application
+
+## TODO List
+
+- [ ] input clear every time message-box show
+- [ ] delete subject
+- [ ] edit subject
