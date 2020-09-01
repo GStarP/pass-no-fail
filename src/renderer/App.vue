@@ -26,11 +26,6 @@ div {
   background-color: $background;
 }
 ::-webkit-scrollbar {
-  background-color: $background;
-  width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #ccc;
+  width: 0px;
 }
 </style>
