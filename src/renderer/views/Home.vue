@@ -9,7 +9,9 @@
         <subject
           v-for="(subject, i) of subjectList"
           :key="i"
+          :idx="i"
           :data="subject"
+          @click="toSubjectProfile(i)"
         />
       </div>
       <!-- 无主题引导 -->

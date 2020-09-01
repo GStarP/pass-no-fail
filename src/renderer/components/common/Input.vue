@@ -49,7 +49,8 @@ export default Vue.extend({
     user-select:none;
     position: absolute;
     left: 12px;
-    font-size: inherit;
+    font-size: $small;
+    font-weight: 300;
     color: $caption;
   }
   input {

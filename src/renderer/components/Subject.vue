@@ -1,5 +1,5 @@
 <template>
-  <div class="subject card">
+  <div class="subject card" @click="toSubjectProfile()">
     <div class="subject__main">{{data.name}}</div>
     <div class="subject__info">
       <div class="subject__info-item">
@@ -19,11 +19,19 @@ import Vue from 'vue'
 import { getTimeStr } from '../util/time'
 
 export default Vue.extend({
-  props: ['data'],
+  props: ['data', 'idx'],
   methods: {
     // TODO 不包裹会出现 use before render
     getTimeStr (str) {
       return getTimeStr(str)
+    },
+    toSubjectProfile () {
+      this.$router.push({
+        path: '/profile',
+        query: {
+          idx: this.idx
+        }
+      })
     }
   }
 })
