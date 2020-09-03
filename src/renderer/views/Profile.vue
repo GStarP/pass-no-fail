@@ -1,37 +1,73 @@
 <template>
   <div class="profile">
-    <div class="aside"></div>
-    <div class="main">
-      <div class="header">
-        <div class="title">{{subject.name}}</div>
-        <a style="margin-left: auto;" @click="$router.push('/')">BACK</a>
+    <div class="aside">
+      <div class="divider"/>
+      <div class="menu">
+        <hxw-menu-item
+          :important="true"
+          :active="active === 'setting'"
+          icon="setting"
+          text="设置"
+          color="#455A64"
+          @click="go('setting')"
+        />
       </div>
+      <div class="divider"/>
+      <div class="menu">
+        <hxw-menu-item
+          :active="active === i"
+          v-for="(sub, i) of subjectList"
+          :key="'sub' + i"
+          :text="sub.name"
+          color="#5C6BC0"
+          :num="sub.qaNum"
+          @click="go(i)"
+        />
+      </div>
+      <div class="divider"/>
+    </div>
+    <div class="main">
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import MenuItem from '@/components/menu/MenuItem.vue'
 
 export default Vue.extend({
+  components: {
+    'hxw-menu-item': MenuItem
+  },
   data () {
     return {
-      idx: 0
+      active: 'setting'
     }
   },
   computed: {
-    subject () {
-      console.log(this.$store.state.data.subjectList[this.idx])
-      return this.$store.state.data.subjectList[this.idx]
+    subjectList () {
+      return this.$store.state.data.subjectList
     }
   },
-  mounted () {
-    this.idx = Number.parseInt(this.$route.query.idx)
+  methods: {
+    go (dest) {
+      this.active = dest
+      if (dest === 'setting') {
+        this.$router.push({
+          path: '/profile/setting'
+        })
+      } else {
+        this.$router.push({
+          path: `/profile/subject?idx=${dest}`
+        })
+      }
+    }
   }
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/assets/main.scss";
 
 .profile {
@@ -42,6 +78,11 @@ export default Vue.extend({
     width: 280px;
     height: 100%;
     background-color: $text;
+
+    .divider {
+      margin: 0.875rem 1rem;
+      border: 0.5px solid $grey;
+    }
   }
   .main {
     flex: 1;

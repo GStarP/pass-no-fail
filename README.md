@@ -21,6 +21,6 @@ click `/build/win-unpacked/pass-no-fail.exe` and you can use the application
 
 ## TODO List
 
-- [ ] input clear every time message-box show
-- [ ] delete subject
-- [ ] edit subject
+- [x] drop useless Home
+- [ ] click and input
+- [ ] delete/edit subject (right button menu)
