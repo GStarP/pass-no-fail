@@ -12,6 +12,7 @@
         ref="ie"
         :value="val"
         type="text"
+        :style="`color: ${color}`"
         @input="onInput"
         @keyup.enter="onSubmit"
       >

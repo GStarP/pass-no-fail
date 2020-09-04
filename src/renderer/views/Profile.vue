@@ -30,7 +30,7 @@
         class="new-sub-input"
         :value="newSubInput"
         icon="add"
-        color="#000"
+        color="#676767"
         hint="新建一个主题"
         @input="newSubInput = $event"
         @submit="addSubject"
@@ -121,13 +121,14 @@ export default Vue.extend({
       border-radius: 0;
       border: none;
       margin: 0 1rem;
-      background-color: rgba(#000, 0.1);
+      background-color: rgba(#676767, 0.1);
       border-radius: 4px;
     }
   }
   .main {
     flex: 1;
     height: 100%;
+
     .header {
       $h: 80px;
 
@@ -140,6 +141,7 @@ export default Vue.extend({
         font-size: 24px;
         font-weight: bold;
         color: $text;
+        @include line(1);
       }
     }
   }
