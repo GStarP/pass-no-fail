@@ -1,6 +1,7 @@
 <template>
   <div class="profile">
     <div class="aside">
+      <div id="support"/>
       <div class="divider"/>
       <div class="menu">
         <hxw-menu-item
@@ -13,7 +14,7 @@
         />
       </div>
       <div class="divider"/>
-      <div class="menu">
+      <div class="menu sub-menu">
         <hxw-menu-item
           :active="active === i"
           v-for="(sub, i) of subjectList"
@@ -25,6 +26,16 @@
         />
       </div>
       <div class="divider"/>
+      <hxw-input
+        class="new-sub-input"
+        :value="newSubInput"
+        icon="add"
+        color="#000"
+        hint="新建一个主题"
+        @input="newSubInput = $event"
+        @submit="addSubject"
+      />
+      <div class="divider"/>
     </div>
     <div class="main">
       <router-view></router-view>
@@ -35,14 +46,17 @@
 <script lang="ts">
 import Vue from 'vue'
 import MenuItem from '@/components/menu/MenuItem.vue'
+import Input from '@/components/common/Input.vue'
 
 export default Vue.extend({
   components: {
-    'hxw-menu-item': MenuItem
+    'hxw-menu-item': MenuItem,
+    'hxw-input': Input
   },
   data () {
     return {
-      active: 'setting'
+      active: 'setting',
+      newSubInput: ''
     }
   },
   computed: {
@@ -62,6 +76,12 @@ export default Vue.extend({
           path: `/profile/subject?idx=${dest}`
         })
       }
+    },
+    addSubject () {
+      this.$store.commit('ADD_SUBJECT', {
+        name: this.newSubInput
+      })
+      this.newSubInput = ''
     }
   }
 })
@@ -78,10 +98,31 @@ export default Vue.extend({
     width: 280px;
     height: 100%;
     background-color: $text;
+    display: flex;
+    flex-direction: column;
 
     .divider {
-      margin: 0.875rem 1rem;
+      margin: 0.625rem 1rem;
       border: 0.5px solid $grey;
+    }
+
+    .sub-menu {
+      flex: 1;
+      overflow: scroll;
+      
+      &::-webkit-scrollbar {
+        width: 0;
+        height: 2px;
+      }
+
+    }
+
+    .new-sub-input {
+      border-radius: 0;
+      border: none;
+      margin: 0 1rem;
+      background-color: rgba(#000, 0.1);
+      border-radius: 4px;
     }
   }
   .main {

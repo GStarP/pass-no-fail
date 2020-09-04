@@ -78,6 +78,7 @@ export default Vue.extend({
       margin-left: auto;
       color: $caption;
       font-size: $small;
+      user-select: none;
     }
   }
 }
