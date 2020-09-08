@@ -74,7 +74,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@import "@/assets/main.scss";
+@import "static/main.scss";
 
 .input {
   height: 48px;

@@ -39,7 +39,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@import "@/assets/main.scss";
+@import "static/main.scss";
 
 .btn {
   border-radius: 4px;

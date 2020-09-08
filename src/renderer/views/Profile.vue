@@ -91,7 +91,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@import "@/assets/main.scss";
+@import "static/main.scss";
 
 .profile {
   @include row;

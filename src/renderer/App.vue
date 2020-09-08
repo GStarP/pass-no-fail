@@ -11,7 +11,7 @@
 </script>
 
 <style lang="scss">
-@import "@/assets/main.scss";
+@import "../../static/main.scss";
 
 html, body {
   margin: 0;

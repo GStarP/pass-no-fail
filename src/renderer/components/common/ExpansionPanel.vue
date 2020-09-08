@@ -87,7 +87,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@import "@/assets/main.scss";
+@import "static/main.scss";
 
 .expansion-panel {
   border-radius: 4px;

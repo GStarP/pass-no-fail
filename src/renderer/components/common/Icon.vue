@@ -23,8 +23,8 @@ export default Vue.extend({
     style () {
       if (this.color) {
         return {
-          'mask': `url('/src/renderer/assets/icon/${this.name}.svg') no-repeat 50% 50%`,
-          '-webkit-mask': `url('/src/renderer/assets/icon/${this.name}.svg') no-repeat 50% 50%`,
+          'mask': `url('static/icon/${this.name}.svg') no-repeat 50% 50%`,
+          '-webkit-mask': `url('static/icon/${this.name}.svg') no-repeat 50% 50%`,
           'mask-size': 'contain',
           '-webkit-mask-size': 'contain',
           'width': `${this.size}px`,
@@ -33,7 +33,7 @@ export default Vue.extend({
         }
       } else {
         return {
-          'background': `url('/src/renderer/assets/icon/${this.name}.svg') no-repeat 50% 50%`,
+          'background': `url('static/icon/${this.name}.svg') no-repeat 50% 50%`,
           'background-size': 'contain',
           'width': `${this.size}px`,
           'height': `${this.size}px`

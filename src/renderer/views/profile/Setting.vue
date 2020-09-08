@@ -16,7 +16,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/main.scss";
+@import "static/main.scss";
 
 .setting {
   display: flex;

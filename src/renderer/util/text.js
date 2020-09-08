@@ -1,6 +1,6 @@
 
 /**
- * 读写存档工具
+ * 文本工具
  */
 
 export function htmlText (text) {

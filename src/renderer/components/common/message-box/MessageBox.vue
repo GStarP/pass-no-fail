@@ -71,7 +71,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@import "@/assets/main.scss";
+@import "static/main.scss";
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity .3s;
