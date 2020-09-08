@@ -78,10 +78,12 @@ export default Vue.extend({
       }
     },
     addSubject () {
-      this.$store.commit('ADD_SUBJECT', {
-        name: this.newSubInput
-      })
-      this.newSubInput = ''
+      if (this.newSubInput !== '') {
+        this.$store.commit('ADD_SUBJECT', {
+          name: this.newSubInput
+        })
+        this.newSubInput = ''
+      }
     }
   }
 })
