@@ -4,6 +4,15 @@
       <div class="title">{{subject.name}}</div>
     </div>
     <div class="content">
+      <div class="no-data-hint" v-if="subject.qaList.length === 0">暂无问题</div>
+      <div class="qa-list">
+        <hxw-panel
+          v-for="(qa, i) of subject.qaList"
+          :key="idx + 'qa' + i"
+          :preview="qa.q"
+          :content="qa.a"
+        />
+      </div>
       <hxw-input
         :value="newQaInput"
         class="new-qa-input"
@@ -11,6 +20,7 @@
         icon="add"
         hint="添加新问题"
         @input="newQaInput = $event"
+        @submit="addQA"
       />
     </div>
   </div>
@@ -19,10 +29,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import Input from '@/components/common/Input.vue'
+import ExpansionPanel from '@/components/common/ExpansionPanel.vue'
 
 export default Vue.extend({
   components: {
-    'hxw-input': Input
+    'hxw-input': Input,
+    'hxw-panel': ExpansionPanel
   },
   data () {
     return {
@@ -33,6 +45,18 @@ export default Vue.extend({
   computed: {
     subject () {
       return this.$store.state.data.subjectList[this.idx]
+    }
+  },
+  methods: {
+    addQA () {
+      if (this.newQaInput !== '') {
+        this.$store.commit('ADD_QA', {
+          subjectIdx: this.idx,
+          q: this.newQaInput,
+          a: '请输入问题答案'
+        })
+        this.newQaInput = ''
+      }
     }
   },
   mounted () {
@@ -58,6 +82,21 @@ export default Vue.extend({
     @include col;
     flex: 1;
     padding: 0 2rem;
+    position: relative;
+
+    .qa-list {
+      @include col;
+      width: 100%;
+      flex: 1;
+      overflow: scroll;
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+      >div {
+        margin-top: 12px;
+        width: 100%;
+      }
+    }
 
     .new-qa-input {
       width: 100%;

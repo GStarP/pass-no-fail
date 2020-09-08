@@ -23,4 +23,5 @@ click `/build/win-unpacked/pass-no-fail.exe` and you can use the application
 
 - [x] drop useless Home
 - [x] click and input
+- [ ] edit qa
 - [ ] delete/edit subject (right button menu)

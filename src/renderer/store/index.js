@@ -36,12 +36,12 @@ export default new Vuex.Store({
      * @param {string} a 问题答案
      */
     [ADD_QA] (state, payload) {
-      if (payload.subjectIdx && payload.q && payload.a) {
-        state.data.subjectList[payload.subjectIdx].push({
+      if ((payload.subjectIdx >= 0) && payload.q && payload.a) {
+        state.data.subjectList[payload.subjectIdx].qaList.push({
           q: payload.q,
-          a: payload.a,
-          viewTime: 0
+          a: payload.a
         })
+        updateStore(state.data)
       }
     }
   }
