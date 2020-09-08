@@ -8,6 +8,7 @@ Vue.use(Vuex)
 
 const ADD_SUBJECT = 'ADD_SUBJECT'
 const ADD_QA = 'ADD_QA'
+const UPDATE_QA = 'UPDATE_QA'
 
 export default new Vuex.Store({
   state: {
@@ -41,6 +42,25 @@ export default new Vuex.Store({
           q: payload.q,
           a: payload.a
         })
+        state.data.subjectList[payload.subjectIdx].qaNum += 1
+        updateStore(state.data)
+      }
+    },
+    /**
+     * 修改问题
+     * @param {number} subjectIdx 主题索引
+     * @param {number} qaIdx 问题索引
+     * @param {string} q 问题描述
+     * @param {string} a 问题答案
+     */
+    [UPDATE_QA] (state, payload) {
+      if ((payload.subjectIdx >= 0) && (payload.qaIdx >= 0)) {
+        if (payload.q) {
+          state.data.subjectList[payload.subjectIdx].qaList[payload.qaIdx].q = payload.q
+        }
+        if (payload.a) {
+          state.data.subjectList[payload.subjectIdx].qaList[payload.qaIdx].a = payload.a
+        }
         updateStore(state.data)
       }
     }

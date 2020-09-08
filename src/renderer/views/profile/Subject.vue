@@ -4,10 +4,12 @@
       <div class="title">{{subject.name}}</div>
     </div>
     <div class="content">
-      <div class="no-data-hint" v-if="subject.qaList.length === 0">暂无问题</div>
+      <div class="no-data-hint" v-if="subject.qaList.length === 0">还没有问题，快去添加吧~</div>
       <div class="qa-list">
         <hxw-panel
           v-for="(qa, i) of subject.qaList"
+          :subjectIdx="idx"
+          :qaIdx="i"
           :key="idx + 'qa' + i"
           :preview="qa.q"
           :content="qa.a"
@@ -57,6 +59,13 @@ export default Vue.extend({
         })
         this.newQaInput = ''
       }
+    }
+  },
+  beforeMount () {
+    if (this.$store.state.data.subjectList.length === 0) {
+      this.$router.push({
+        path: '/profile/setting'
+      })
     }
   },
   mounted () {

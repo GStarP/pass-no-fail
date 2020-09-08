@@ -14,6 +14,7 @@
         />
       </div>
       <div class="divider"/>
+      <div class="no-data-hint" v-if="subjectList.length === 0">还没有主题<br>快去新建主题吧~</div>
       <div class="menu sub-menu">
         <hxw-menu-item
           :active="active === i"
@@ -102,10 +103,17 @@ export default Vue.extend({
     background-color: $text;
     display: flex;
     flex-direction: column;
+    position: relative;
 
     .divider {
       margin: 0.625rem 1rem;
       border: 0.5px solid $grey;
+    }
+
+    .no-data-hint {
+      color: $black;
+      font-size: $big;
+      top: 40%;
     }
 
     .sub-menu {
