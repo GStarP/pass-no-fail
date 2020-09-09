@@ -23,8 +23,9 @@
 $background:  #5C6BC0;
 $text: #FFF;
 $caption: #676767;
-$grey: rgba(0, 0, 0, 0.87);
+$grey: #ECECEC;
 $error: rgb(255, 82, 82);
+$black: rgba(0, 0, 0, 0.87);
 
 /**
  * font
@@ -61,4 +62,16 @@ $mini: 12px;
   padding: 1.5rem;
   background-color: #FFF;
   color: #000;
+}
+
+/**
+ * common
+ */
+.no-data-hint {
+  position: absolute;
+  top: 35%;
+  color: $text;
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
 }

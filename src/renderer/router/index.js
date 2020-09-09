@@ -6,16 +6,22 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
-      component: () => import('@/views/Home.vue')
-    },
-    {
       path: '/profile',
-      component: () => import('@/views/Profile.vue')
+      component: () => import('@/views/Profile.vue'),
+      children: [
+        {
+          path: 'setting',
+          component: () => import('@/views/profile/Setting.vue')
+        },
+        {
+          path: 'subject',
+          component: () => import('@/views/profile/Subject.vue')
+        }
+      ]
     },
     {
       path: '*',
-      redirect: '/'
+      redirect: '/profile/setting'
     }
   ]
 })

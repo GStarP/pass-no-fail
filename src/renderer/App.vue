@@ -11,7 +11,7 @@
 </script>
 
 <style lang="scss">
-@import "@/assets/main.scss";
+@import "../../static/main.scss";
 
 html, body {
   margin: 0;
@@ -24,24 +24,5 @@ div {
 #app {
   min-height: 100vh;
   background-color: $background;
-}
-::-webkit-scrollbar {
-  background-color: $background;
-  width: 6px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgba(#333, 0.4);
-  border-radius: 16px;
-  &:hover {
-    background-color: rgba(#333, 0.6);
-  }
-  &:active {
-    background-color: rgba(#333, 0.8);
-  }
-}
-
-::-webkit-scrollbar-track-piece {
-  margin: 4px;
 }
 </style>

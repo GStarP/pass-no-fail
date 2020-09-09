@@ -46,7 +46,8 @@
       "icon": "build/icons/icon.icns"
     },
     "win": {
-      "icon": "build/icons/icon.ico"
+      "icon": "build/icons/icon.ico",
+      "extraResources": "./static"
     },
     "linux": {
       "icon": "build/icons"
