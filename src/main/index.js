@@ -21,7 +21,12 @@ function createWindow () {
    */
   mainWindow = new BrowserWindow({
     height: 720,
-    width: 960
+    width: 960,
+    webPreferences: {
+      defaultFontFamily: {
+        standard: 'Microsoft YaHei'
+      }
+    }
   })
 
   mainWindow.loadURL(winURL)

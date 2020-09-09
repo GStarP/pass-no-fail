@@ -123,7 +123,7 @@ export default Vue.extend({
 
     .text-field {
       font-size: $small;
-      line-height: 1rem;
+      line-height: 1.1rem;
     }
   }
 }

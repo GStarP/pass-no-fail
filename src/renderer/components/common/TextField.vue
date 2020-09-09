@@ -55,7 +55,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .text-field {
-  $h: 1.2rem;
+  $h: 1.3rem;
   line-height: $h;
   min-height: $h;
   font-size: .9rem;

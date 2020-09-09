@@ -4,7 +4,7 @@ a simple desktop tool for recite
 
 wish everyone pass
 
-## Quick Start
+## Develop
 
 ``` bash
 npm install
@@ -12,17 +12,43 @@ npm install
 npm run dev
 ```
 
-## Build Artifact
+## Build
 
 ``` bash
 npm run build:dir
 ```
-click `/build/win-unpacked/pass-no-fail.exe` and you can use the application
+double click `/build/win-unpacked/pass-no-fail.exe` to launch the application
 
-## TODO List
+data will be stored in `/build/win-unpacked/resources/static/store.json`
+
+## Use
+
+1. zip `/build/win-unpacked` and send it to your friends
+
+2. tell them to double click `pass-no-fail.exe`
+
+3. let them input a new subject name and press `Enter`
+
+4. let them input a new question and press `Enter`
+
+5. tell them to expand the question and input an answer, then click blank place (not press Enter)
+
+since we have not supported multiple question types, you can DIY, for example:
+
+- `[  ]` means `T/F question`
+- `(  )` means `multiple-choices question`
+
+![](./img/preview.png)
+
+## TODO - Improve
 
 - [x] drop useless Home
 - [x] click and input
 - [x] edit qa
 - [ ] transition - expand qa
 - [ ] delete subject/qa (right-click menu)
+
+## TODO - Feature
+
+- [ ] search qa
+- [ ] star subject/qa (sort)
