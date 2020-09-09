@@ -13,6 +13,7 @@
           :key="idx + 'qa' + i"
           :preview="qa.q"
           :content="qa.a"
+          @rclick="rc($event)"
         />
       </div>
       <hxw-input
@@ -59,6 +60,9 @@ export default Vue.extend({
         })
         this.newQaInput = ''
       }
+    },
+    rc (e) {
+      console.log(e)
     }
   },
   beforeMount () {

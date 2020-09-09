@@ -25,6 +25,7 @@ $text: #FFF;
 $caption: #676767;
 $grey: #ECECEC;
 $error: rgb(255, 82, 82);
+$error-light: rgb(255, 68, 68);
 $black: rgba(0, 0, 0, 0.87);
 
 /**
@@ -53,6 +54,10 @@ $mini: 12px;
   box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12) !important;
 }
 
+@mixin elevation-6 {
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12)!important;
+}
+
 /**
  * card
  */
@@ -74,4 +79,38 @@ $mini: 12px;
   font-size: 2rem;
   width: 100%;
   text-align: center;
+}
+
+.ctx-menu-menu {
+  @include col;
+  $h: 42px;
+  min-height: $h;
+
+  .ctx-menu-item {
+    @include row;
+    width: 100%;
+    line-height: $h;
+    padding: 0 18px;
+
+    &__icon {
+      margin-right: 12px;
+    }
+
+    &__text {
+      font-size: $small;
+      margin-right: 2px;
+      padding-top: -1px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .menu-item-del {
+    background-color: $error;
+    color: $text;
+    &:hover {
+      background-color: $error-light;
+    }
+  }
 }

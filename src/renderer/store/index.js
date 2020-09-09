@@ -7,8 +7,10 @@ import { getCurTimeStr } from '../util/time'
 Vue.use(Vuex)
 
 const ADD_SUBJECT = 'ADD_SUBJECT'
+const DEL_SUBJECT = 'DEL_SUBJECT'
 const ADD_QA = 'ADD_QA'
 const UPDATE_QA = 'UPDATE_QA'
+const DEL_QA = 'DEL_QA'
 
 export default new Vuex.Store({
   state: {
@@ -27,6 +29,16 @@ export default new Vuex.Store({
           qaNum: 0,
           qaList: []
         })
+        updateStore(state.data)
+      }
+    },
+    /**
+     * 删除主题
+     * @param {number} subjectIdx 主题索引
+     */
+    [DEL_SUBJECT] (state, payload) {
+      if (payload.subjectIdx >= 0) {
+        state.data.subjectList.splice(payload.subjectIdx, 1)
         updateStore(state.data)
       }
     },
@@ -61,6 +73,18 @@ export default new Vuex.Store({
         if (payload.a) {
           state.data.subjectList[payload.subjectIdx].qaList[payload.qaIdx].a = payload.a
         }
+        updateStore(state.data)
+      }
+    },
+    /**
+     * 删除问题
+     * @param {number} subjectIdx 主题索引
+     * @param {number} qaIdx 问题索引
+     */
+    [DEL_QA] (state, payload) {
+      if ((payload.subjectIdx >= 0) && (payload.qaIdx >= 0)) {
+        state.data.subjectList[payload.subjectIdx].qaList.splice(payload.qaIdx, 1)
+        state.data.subjectList[payload.subjectIdx].qaNum -= 1
         updateStore(state.data)
       }
     }

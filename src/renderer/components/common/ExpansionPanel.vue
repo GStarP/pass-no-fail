@@ -1,5 +1,21 @@
 <template>
-  <div class="expansion-panel">
+  <div class="expansion-panel" @contextmenu.prevent="onRclick($event)">
+    <hxw-ctx-menu
+      :cmShow="ctxMenuShow"
+      :x="ctxMenuX"
+      :y="ctxMenuY"
+      @close="ctxMenuShow = false"
+    >
+      <div class="ctx-menu-menu">
+        <div class="ctx-menu-item menu-item-del" @click="delQA">
+          <hxw-icon
+            class="ctx-menu-item__icon"
+            name="delete"
+          />
+          <div class="ctx-menu-item__text">删除</div>
+        </div>
+      </div>
+    </hxw-ctx-menu>
     <div class="expansion-panel-preview" @click="toggleExpand">
       <div class="expansion-panel-preview__text">
         <hxw-text-field
@@ -33,18 +49,23 @@
 import Vue from 'vue'
 import Icon from '@/components/common/Icon.vue'
 import TextField from '@/components/common/TextField.vue'
+import CtxMenu from '@/components/common/CtxMenu.vue'
 
 export default Vue.extend({
   components: {
     'hxw-icon': Icon,
-    'hxw-text-field': TextField
+    'hxw-text-field': TextField,
+    'hxw-ctx-menu': CtxMenu
   },
   props: ['preview', 'content', 'subjectIdx', 'qaIdx'],
   data () {
     return {
       expand: false,
       q: this.preview,
-      a: this.content
+      a: this.content,
+      ctxMenuShow: false,
+      ctxMenuX: 0,
+      ctxMenuY: 0
     }
   },
   computed: {
@@ -59,6 +80,11 @@ export default Vue.extend({
     }
   },
   methods: {
+    onRclick (e) {
+      this.ctxMenuShow = true
+      this.ctxMenuX = e.offsetX
+      this.ctxMenuY = e.offsetY
+    },
     toggleExpand () {
       this.expand = !this.expand
     },
@@ -81,6 +107,12 @@ export default Vue.extend({
           a: this.a
         })
       }
+    },
+    delQA () {
+      this.$store.commit('DEL_QA', {
+        subjectIdx: this.subjectIdx,
+        qaIdx: this.qaIdx
+      })
     }
   }
 })
@@ -93,6 +125,11 @@ export default Vue.extend({
   border-radius: 4px;
   background-color: $text;
   color: $black;
+  position: relative;
+
+  .ctx-menu {
+    @include elevation-6;
+  }
 
   &-preview {
     @include row;
