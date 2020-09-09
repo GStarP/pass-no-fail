@@ -45,8 +45,10 @@ since we have not supported multiple question types, you can DIY, for example:
 - [x] drop useless Home
 - [x] click and input
 - [x] edit qa
+- [x] delete qa (right-click menu)
+- [ ] improve message-box (drop input)
+- [ ] delete subject (long-time press)
 - [ ] transition - expand qa
-- [ ] delete subject/qa (right-click menu)
 
 ## TODO - Feature
 
